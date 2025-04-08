@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISE Movie Night</title>
+  <link rel="stylesheet" href="ISEMovieNightStyle.css" />
+</head>
+<body>
+  <header>
+    <h1>[ISE] Movie Night</h1>
+  </header>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Home</a>
+    <a href="#">Calendar</a>
+    <a href="#">Suggest a Movie</a>
+    <a href="#">Donate to Snack Fund</a>
+  </div>
+  
+  <!-- Use any element to open the sidenav -->
+  <button id="sideNavButton" onclick="openNav()">open</button>
+ 
+  <main>
+    <section class="suggestion-form">
+      <h2>Suggest a Movie</h2>
+      <form id="movieForm">
+        <input type="text" id="movieTitle" placeholder="Enter movie title" required />
+        <button type="submit">Suggest</button>
+      </form>
+    </section>
+
+    <section class="movie-list">
+      <h2>Movie Suggestions</h2>
+      <ul id="movieSuggestions">
+        <!-- Movie suggestions will appear here -->
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('movieForm');
+    const movieList = document.getElementById('movieSuggestions');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('movieTitle').value.trim();
+      if (title) {
+        const li = document.createElement('li');
+        li.innerHTML = `${title} <button class="vote">Vote (<span class="count">0</span>)</button>`;
+        movieList.appendChild(li);
+        document.getElementById('movieTitle').value = '';
+      }
+    });
+
+    movieList.addEventListener('click', function(e) {
+      if (e.target.classList.contains('vote')) {
+        const countSpan = e.target.querySelector('.count');
+        countSpan.textContent = parseInt(countSpan.textContent) + 1;
+      }
+    });
+
+      /* Set the width of the side navigation to 250px */
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      /* Set the width of the side navigation to 0 */
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      }
+  </script>
+</body>
+</html>
