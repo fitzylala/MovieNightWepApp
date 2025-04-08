@@ -1,0 +1,27 @@
+{
+  "name": "movienightwepapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fitzylala/MovieNightWepApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fitzylala/MovieNightWepApp/issues"
+  },
+  "homepage": "https://github.com/fitzylala/MovieNightWepApp#readme",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0",
+    "prisma": "^6.5.0"
+  }
+}
